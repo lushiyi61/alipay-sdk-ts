@@ -24,6 +24,17 @@
   },
   "homepage": "https://github.com/lushiyi61/alipay-sdk-ts#readme",
   "devDependencies": {
+    "@types/crypto-js": "^4.1.1",
+    "@types/lodash": "^4.14.180",
     "@types/node": "^17.0.21"
+  },
+  "dependencies": {
+    "@fidm/x509": "^1.2.1",
+    "bignumber.js": "^9.0.2",
+    "camelcase-keys": "^7.0.2",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "snakecase-keys": "^5.1.2",
+    "urllib": "^2.38.0"
   }
 }

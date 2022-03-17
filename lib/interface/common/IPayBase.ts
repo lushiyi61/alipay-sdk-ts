@@ -1,5 +1,5 @@
 export interface IPayBaseReq {
-    appid: string       //支付宝分配给开发者的应用ID
+    app_id: string       //支付宝分配给开发者的应用ID
     method: string     //接口名称
     format?: string  // JSON
     return_url?: string
@@ -7,7 +7,7 @@ export interface IPayBaseReq {
     sign_type: string  //商户生成签名字符串的签名算法类型
     sign: string   //签名字符串
     timestamp: string   //"yyyy-MM-dd HH:mm:ss"
-    version: string
+    version: string // 调用的接口版本，固定为：1.0
     notify_url?: string
     app_auth_token?: string
     biz_content: string  //除公共参数外所有请求参数都必须放在这个参数中传递

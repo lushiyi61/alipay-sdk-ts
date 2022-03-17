@@ -1,0 +1,29 @@
+{
+  "name": "alipay-sdk-ts",
+  "version": "1.0.0",
+  "description": "阿里支付 typescript",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lushiyi61/alipay-sdk-ts.git"
+  },
+  "keywords": [
+    "alipay"
+  ],
+  "author": "邹健",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lushiyi61/alipay-sdk-ts/issues"
+  },
+  "homepage": "https://github.com/lushiyi61/alipay-sdk-ts#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.21"
+  }
+}

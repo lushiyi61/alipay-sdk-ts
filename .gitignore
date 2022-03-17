@@ -101,3 +101,9 @@ typings/
 
 # TernJS port file
 .tern-port
+fixtures/alipay/.DS_Store
+fixtures/alipay/alipayCertPublicKey_RSA2.crt
+fixtures/alipay/alipayRootCert.crt
+fixtures/alipay/appCertPublicKey.crt
+fixtures/alipay/private-key.pem
+fixtures/alipay/public-key.pem

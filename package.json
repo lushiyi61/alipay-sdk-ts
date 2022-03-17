@@ -1,6 +1,6 @@
 {
   "name": "alipay-sdk-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "阿里支付 typescript",
   "main": "dist/index.js",
   "directories": {

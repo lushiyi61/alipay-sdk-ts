@@ -16,6 +16,7 @@ const rootDir = join(__dirname, "../");
         appCertPath: join(rootDir, "fixtures/alipay/appCertPublicKey.crt"),
     });
 
+    // const code = '1647485506158657571'
     const code = '11499915135151513251'
     // const code = '1647428490292142469'
     // const code = '11499915135151513252'
@@ -38,6 +39,6 @@ const rootDir = join(__dirname, "../");
         console.log('error:', error);
 
     }
-    const query = await alipaySdk.exec('alipay.trade.query', 'GET', { out_trade_no: code })
+    const query = await alipaySdk.exec('alipay.trade.query', { out_trade_no: code }, true)
     console.log('query:', query);
 })()

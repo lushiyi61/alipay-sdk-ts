@@ -147,52 +147,32 @@ export default class AlipaySdk {
     }
 
     /**
-     * 执行请求
-     * @param {string} method 调用接口方法名，比如 alipay.ebpp.bill.add
-     * @param {object} params 请求参数
-     * @param {object} params.bizContent 业务请求参数
-     * @param {Boolean} option 选项
-     * @param {Boolean} option.validateSign 是否验签
-     * @param {object} args.log 可选日志记录对象
-     * @return {Promise} 请求执行结果
+     * 
+     * @param method  调用接口方法名，比如 alipay.ebpp.bill.add
+     * @param params 请求参数 biz_content
+     * @param validateSign 是否验签
+     * @param log 打印日志
+     * @returns 
      */
     exec(
         method: string,
-        type: 'POST' | 'GET',
         params: any = {},
         validateSign?: boolean,
         log?: boolean,
     ): Promise<AlipaySdkCommonResult | string> {
         const config = this.config;
-
-
-        let signParams: any = params
-        if (type == 'GET') {
-            signParams = { alipaySdk: this.sdkVersion } as { [key: string]: string | Object };
-            signParams['biz_content'] = params
-            // 签名方法中使用的 key 是驼峰
-            signParams = camelcaseKeys(signParams, { deep: true });
-            // 计算签名
-            const signData = sign(method, signParams, config);
-            const { url, execParams } = this.formatUrl(config.gateway!, signData);
-            const query = Object.keys(execParams).map((key) => {
-                return `${key}=${encodeURIComponent(execParams[key])}`;
-            });
-
-            console.log(`${url}&${query.join('&')}`);
-        } else {
-
-        }
+        let signParams: any = { alipaySdk: this.sdkVersion, biz_content: params } as { [key: string]: string | Object };
+        // 签名方法中使用的 key 是驼峰
+        signParams = camelcaseKeys(signParams, { deep: true });
         // 计算签名
         const signData = sign(method, signParams, config);
+
         const { url, execParams } = this.formatUrl(config.gateway!, signData);
         log && console.log('[AlipaySdk]start exec, url: %s, method: %s, params: %s', url, method, JSON.stringify(execParams));
 
-
-        // throw url;
         return new Promise((resolve, reject) => {
             urllib.request(url, {
-                method: type,
+                method: 'POST',
                 data: execParams,
                 // 按 text 返回（为了验签）
                 dataType: 'text',

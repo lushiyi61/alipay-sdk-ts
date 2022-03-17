@@ -1,4 +1,4 @@
-import { IPayBaseRes } from './IPayBase';
+import { AlipaySdkCommonResult } from './IPayBase';
 
 export interface IPayCloseReqInfo {
     trade_no: string
@@ -6,7 +6,7 @@ export interface IPayCloseReqInfo {
     operator_id: string
 }
 
-export interface IPayCloseResInfo extends IPayBaseRes {
+export interface IPayCloseResInfo extends AlipaySdkCommonResult {
     trade_no: string
     out_trade_no: string
 }

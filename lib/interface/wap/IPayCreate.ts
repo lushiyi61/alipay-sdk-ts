@@ -1,4 +1,4 @@
-import { IPayBaseRes } from "../common/IPayBase"
+import { AlipaySdkCommonResult } from "../common/IPayBase"
 
 export interface IPayCreateReqInfo {
     out_trade_no: string    //商户订单号
@@ -57,7 +57,7 @@ export interface IPayCreateReqInfo {
     }
 }
 
-export interface IPayCreateResInfo extends IPayBaseRes {
+export interface IPayCreateResInfo extends AlipaySdkCommonResult {
     out_trade_no: string
     trade_no: string
     total_amount: string

@@ -13,7 +13,7 @@ export interface IPayBaseReq {
     biz_content: string  //除公共参数外所有请求参数都必须放在这个参数中传递
 }
 
-export interface IPayBaseRes {
+export interface AlipaySdkCommonResult {
     code: string
     msg: string
     sub_code?: string

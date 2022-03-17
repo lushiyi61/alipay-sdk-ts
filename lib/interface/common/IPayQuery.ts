@@ -1,4 +1,4 @@
-import { IPayBaseRes } from './IPayBase';
+import { AlipaySdkCommonResult } from './IPayBase';
 export interface IPayQueryReqInfo {
     out_trade_no?: string    //	订单支付时传入的商户订单号,和支付宝交易号不能同时为空。
     trade_no?: string        //支付宝交易号，和商户订单号不能同时为空
@@ -6,7 +6,7 @@ export interface IPayQueryReqInfo {
     query_options?: String[]
 }
 
-export interface IPayQueryResInfo extends IPayBaseRes {
+export interface IPayQueryResInfo extends AlipaySdkCommonResult {
     trade_no: string
     out_trade_no: string
     buyer_logon_id: string

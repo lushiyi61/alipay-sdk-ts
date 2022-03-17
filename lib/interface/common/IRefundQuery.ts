@@ -1,4 +1,4 @@
-import { IPayBaseRes } from './IPayBase';
+import { AlipaySdkCommonResult } from './IPayBase';
 export interface IRefundQueryReq {
     trade_no?: string
     out_trade_no?: string
@@ -6,7 +6,7 @@ export interface IRefundQueryReq {
     query_options?: string
 }
 
-export interface IRefundQueryRes extends IPayBaseRes{
+export interface IRefundQueryRes extends AlipaySdkCommonResult{
     trade_no?: string
     out_trade_no?: string
     out_request_no: string

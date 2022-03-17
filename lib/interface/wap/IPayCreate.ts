@@ -1,3 +1,5 @@
+import { IPayBaseRes } from "../common/IPayBase"
+
 export interface IPayCreateReqInfo {
     out_trade_no: string    //商户订单号
     total_amount: string  //Price、单位为元,精确到小数点后两位
@@ -55,7 +57,7 @@ export interface IPayCreateReqInfo {
     }
 }
 
-export interface IPayCreateResInfo {
+export interface IPayCreateResInfo extends IPayBaseRes {
     out_trade_no: string
     trade_no: string
     total_amount: string

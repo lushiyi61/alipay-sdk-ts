@@ -16,7 +16,7 @@ export interface IPayBaseReq {
 export interface IPayBaseRes {
     code: string
     msg: string
-    sub_code: string
-    sub_msg: string
+    sub_code?: string
+    sub_msg?: string
     sign: string
 }

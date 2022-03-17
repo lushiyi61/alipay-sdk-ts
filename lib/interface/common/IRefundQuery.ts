@@ -1,3 +1,4 @@
+import { IPayBaseRes } from './IPayBase';
 export interface IRefundQueryReq {
     trade_no?: string
     out_trade_no?: string
@@ -5,7 +6,7 @@ export interface IRefundQueryReq {
     query_options?: string
 }
 
-export interface IRefundQueryRes {
+export interface IRefundQueryRes extends IPayBaseRes{
     trade_no?: string
     out_trade_no?: string
     out_request_no: string

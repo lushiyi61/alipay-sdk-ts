@@ -16,6 +16,7 @@ export default class AlipaySdk {
         if (!config.appId) { throw Error('config.appId is required'); }
         if (!config.privateKey) { throw Error('config.privateKey is required'); }
         this.sdkVersion = `alipay-sdk-ts-nodejs-${pkg.version}`;
+        console.log('this.sdkVersion :', this.sdkVersion);
 
         const privateKeyType = config.keyType !== 'PKCS8' ? 'PRIVATE KEY' : 'RSA PRIVATE KEY';
         config.privateKey = this.formatKey(config.privateKey, privateKeyType);
@@ -161,15 +162,16 @@ export default class AlipaySdk {
         log?: boolean,
     ): Promise<AlipaySdkCommonResult | string> {
         const config = this.config;
-        let signParams: any = { alipaySdk: this.sdkVersion, biz_content: params } as { [key: string]: string | Object };
+        let signParams: any = { biz_content: params } as { [key: string]: string | Object };
         // 签名方法中使用的 key 是驼峰
         signParams = camelcaseKeys(signParams, { deep: true });
         // 计算签名
         const signData = sign(method, signParams, config);
 
         const { url, execParams } = this.formatUrl(config.gateway!, signData);
-        log && console.log('[AlipaySdk]start exec, url: %s, method: %s, params: %s', url, method, JSON.stringify(execParams));
+        log && console.log('[AlipaySdk]start exec, url: %s, method: %s, params: ', url, method, JSON.stringify(execParams));
 
+        throw ''
         return new Promise((resolve, reject) => {
             urllib.request(url, {
                 method: 'POST',
@@ -177,7 +179,7 @@ export default class AlipaySdk {
                 // 按 text 返回（为了验签）
                 dataType: 'text',
                 timeout: config.timeout,
-                headers: { 'user-agent': this.sdkVersion },
+                // headers: { 'user-agent': this.sdkVersion },
             })
                 .then((ret: any) => {
                     log && console.log('[AlipaySdk]exec response: %s', ret);

@@ -16,25 +16,21 @@ const rootDir = join(__dirname, "../");
         appCertPath: join(rootDir, "fixtures/alipay/appCertPublicKey.crt"),
     });
 
-    // const code = '1647485506158657571'
-    const code = '11499915135151513251'
+    const code = '1647485506158657571'
+    // const code = '11499915135151513251'
     // const code = '1647428490292142469'
     // const code = '11499915135151513252'
     try {
-        // const result = await alipaySdk.exec('alipay.trade.wap.pay',
-        //     {
-        //         bizContent: {
-        //             out_trade_no: code,
-        //             total_amount: '0.01',  // examData.examCost.toString(),
-        //             subject: '考试费用',
-        //             product_code: "123",
-        //             quit_url: "",
-        //         },
-        //     },
-        //     {
-        //         log: console
-        //     });
-        // console.log('result:', result);
+        const result = await alipaySdk.exec('alipay.trade.wap.pay',
+            {
+
+                out_trade_no: code,
+                total_amount: '0.01',  // examData.examCost.toString(),
+                subject: '考试费用',
+                product_code: "QUICK_WAP_WAY",
+                quit_url: "",
+            }, true, true);
+        console.log('result:', result);
     } catch (error) {
         console.log('error:', error);
 
